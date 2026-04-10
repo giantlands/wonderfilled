@@ -129,6 +129,7 @@ const {
         s.x += Math.sin(s.angle) * s.speed;
         s.y += Math.cos(s.angle) * s.speed;
         s.life -= s.decay;
+        if (s.life <= 0) { stars.splice(i, 1); continue; }
 
         const tailX = s.x - Math.sin(s.angle) * s.len * s.life;
         const tailY = s.y - Math.cos(s.angle) * s.len * s.life;
@@ -153,7 +154,7 @@ const {
         ctx.fillStyle = hg;
         ctx.fill();
 
-        if (s.life <= 0 || s.y > h + 20 || s.x < -50 || s.x > w + 50) {
+        if (s.y > h + 20 || s.x < -50 || s.x > w + 50) {
           stars.splice(i, 1);
         }
       }
