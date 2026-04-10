@@ -34,8 +34,72 @@ const {
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <canvas id="pixie-dust" style="position:fixed;inset:0;z-index:9999;pointer-events:none;"></canvas>
   <Nav />
   <slot />
   <Footer />
+  <script>
+    const canvas = document.getElementById('pixie-dust');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    const particles = [];
+    const COUNT = 60;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function rand(a, b) { return Math.random() * (b - a) + a; }
+
+    for (let i = 0; i < COUNT; i++) {
+      particles.push({
+        x: rand(0, w),
+        y: rand(0, h),
+        r: rand(1, 2.5),
+        dx: rand(-0.15, 0.15),
+        dy: rand(-0.3, -0.08),
+        drift: rand(0.3, 1.2),
+        phase: rand(0, Math.PI * 2),
+        speed: rand(0.003, 0.008),
+        alpha: rand(0.15, 0.5),
+        pulse: rand(0.01, 0.025),
+        hue: rand(38, 52),
+      });
+    }
+
+    function draw(t) {
+      ctx.clearRect(0, 0, w, h);
+      for (const p of particles) {
+        p.phase += p.speed;
+        p.x += p.dx + Math.sin(p.phase) * p.drift * 0.3;
+        p.y += p.dy;
+
+        const flicker = 0.5 + 0.5 * Math.sin(p.phase * 3);
+        const a = p.alpha * (0.4 + 0.6 * flicker);
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${p.hue}, 60%, 65%, ${a})`;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
+        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
+        g.addColorStop(0, `hsla(${p.hue}, 70%, 70%, ${a * 0.35})`);
+        g.addColorStop(1, `hsla(${p.hue}, 70%, 70%, 0)`);
+        ctx.fillStyle = g;
+        ctx.fill();
+
+        if (p.y < -10) { p.y = h + 10; p.x = rand(0, w); }
+        if (p.x < -10) p.x = w + 10;
+        if (p.x > w + 10) p.x = -10;
+      }
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  </script>
 </body>
 </html>
