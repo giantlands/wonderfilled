@@ -70,8 +70,31 @@ const {
       });
     }
 
+    const stars = [];
+    let nextStar = rand(2000, 6000);
+
+    function spawnStar() {
+      stars.push({
+        x: rand(w * 0.1, w * 0.9),
+        y: -20,
+        angle: rand(0.15, 0.5) * (Math.random() < 0.5 ? 1 : -1),
+        speed: rand(4, 8),
+        life: 1,
+        decay: rand(0.006, 0.012),
+        len: rand(60, 140),
+        hue: rand(38, 55),
+      });
+      nextStar = rand(3000, 8000);
+    }
+
+    let lastTime = 0;
+    let starTimer = rand(1000, 3000);
+
     function draw(t) {
+      const dt = t - lastTime;
+      lastTime = t;
       ctx.clearRect(0, 0, w, h);
+
       for (const p of particles) {
         p.phase += p.speed;
         p.x += p.dx + Math.sin(p.phase) * p.drift * 0.3;
@@ -97,6 +120,44 @@ const {
         if (p.x < -10) p.x = w + 10;
         if (p.x > w + 10) p.x = -10;
       }
+
+      starTimer -= dt;
+      if (starTimer <= 0) spawnStar();
+
+      for (let i = stars.length - 1; i >= 0; i--) {
+        const s = stars[i];
+        s.x += Math.sin(s.angle) * s.speed;
+        s.y += Math.cos(s.angle) * s.speed;
+        s.life -= s.decay;
+
+        const tailX = s.x - Math.sin(s.angle) * s.len * s.life;
+        const tailY = s.y - Math.cos(s.angle) * s.len * s.life;
+
+        const sg = ctx.createLinearGradient(s.x, s.y, tailX, tailY);
+        sg.addColorStop(0, `hsla(${s.hue}, 80%, 85%, ${s.life * 0.9})`);
+        sg.addColorStop(0.3, `hsla(${s.hue}, 70%, 70%, ${s.life * 0.5})`);
+        sg.addColorStop(1, `hsla(${s.hue}, 60%, 60%, 0)`);
+
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(tailX, tailY);
+        ctx.strokeStyle = sg;
+        ctx.lineWidth = 1.5 * s.life;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, 2.5 * s.life, 0, Math.PI * 2);
+        const hg = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 6 * s.life);
+        hg.addColorStop(0, `hsla(${s.hue}, 80%, 90%, ${s.life * 0.8})`);
+        hg.addColorStop(1, `hsla(${s.hue}, 80%, 90%, 0)`);
+        ctx.fillStyle = hg;
+        ctx.fill();
+
+        if (s.life <= 0 || s.y > h + 20 || s.x < -50 || s.x > w + 50) {
+          stars.splice(i, 1);
+        }
+      }
+
       requestAnimationFrame(draw);
     }
     requestAnimationFrame(draw);
