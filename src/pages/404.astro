@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="404 — Page Not Found — Wonderfilled, Inc.">
+
+  <section style="
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 4rem;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  ">
+    <div style="
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,168,76,0.04) 0%, transparent 70%);
+    "></div>
+    <div style="position: relative; z-index: 2;">
+      <p style="
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(8rem, 20vw, 18rem);
+        line-height: 1;
+        color: rgba(201,168,76,0.06);
+        letter-spacing: 0.05em;
+      ">404</p>
+      <div class="section-eyebrow" style="justify-content:center; margin-top:-2rem;">Lost in the Fifth Age</div>
+      <h1 class="section-title" style="font-size: clamp(2rem, 5vw, 4rem); margin: 1.5rem 0;">This World <em>Doesn't Exist.</em></h1>
+      <p style="
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.2rem; font-weight: 300; font-style: italic;
+        color: var(--mist2);
+        max-width: 500px;
+        margin: 0 auto 3rem;
+        line-height: 1.6;
+      ">The page you're looking for has wandered beyond the map. Navigate back to known territory.</p>
+      <a class="btn-primary" href="/">Return Home</a>
+    </div>
+  </section>
+
+</Base>

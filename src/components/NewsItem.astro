@@ -1,0 +1,20 @@
+---
+interface Props {
+  date: string;
+  title: string;
+  category: string;
+  href?: string;
+}
+
+const { date, title, category, href } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag
+  class="news-item"
+  {...(href ? { href } : {})}
+>
+  <div class="news-date">{date}</div>
+  <div class="news-title">{title}</div>
+  <span class="news-cat">{category}</span>
+</Tag>

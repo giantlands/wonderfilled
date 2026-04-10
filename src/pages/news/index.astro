@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('news');
+posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+---
+
+<Base
+  title="News — Wonderfilled, Inc."
+  description="Latest news, dispatches, and announcements from Wonderfilled, Inc. — games, publishing, research, and studio updates."
+>
+
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">News &amp; Updates</div>
+    <h1 class="page-hero-title">Latest <em>Dispatches.</em></h1>
+    <p class="page-hero-sub">Studio news, publishing announcements, research, and dispatches from the frontier.</p>
+  </div>
+
+  <section class="inner-section" style="background: var(--ink);">
+    <div class="news-list">
+      {posts.map(post => (
+        <a class="news-item" href={`/news/${post.slug}`}>
+          <div class="news-date">{post.data.displayDate}</div>
+          <div class="news-title">{post.data.title}</div>
+          <span class="news-cat">{post.data.category}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+</Base>
