@@ -4,8 +4,7 @@
 A single-page marketing website for Wonderfilled, Inc. (wonderfilled.games), a transmedia studio and publisher focused on narrative architecture, game design, and IP development.
 
 ## Project Structure
-- `wonderfilled_v1.html` - Original HTML source file
-- `index.html` - Copy of the HTML file served as the site root
+- `index.html` - Main website page
 
 ## Technology
 - Pure HTML5/CSS3, no build system or package manager
