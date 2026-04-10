@@ -1,18 +1,25 @@
 # Wonderfilled, Inc. - Marketing Website
 
 ## Overview
-A single-page marketing website for Wonderfilled, Inc. (wonderfilled.games), a transmedia studio and publisher focused on narrative architecture, game design, and IP development.
+A multi-page marketing website for Wonderfilled, Inc. (wonderfilled.games), a transmedia studio and publisher focused on narrative architecture, game design, and IP development.
 
 ## Project Structure
-- `index.html` - Main website page
+- `src/pages/index.astro` - Home page
+- `src/pages/about.astro` - About page
+- `src/pages/services.astro` - Services page
+- `src/pages/contact.astro` - Contact page
+- `src/pages/projects/` - Project pages
+- `src/pages/news/` - News pages
+- `src/pages/404.astro` - 404 page
+- `src/layouts/Base.astro` - Base layout
+- `astro.config.mjs` - Astro configuration
 
 ## Technology
-- Pure HTML5/CSS3, no build system or package manager
+- Astro 4.x static site framework
 - Google Fonts: Cormorant Garamond, Bebas Neue, Space Mono
-- Served via Python's built-in HTTP server in development
 
 ## Running Locally
-The "Start application" workflow runs `python3 -m http.server 5000` to serve the static files on port 5000.
+The "Start application" workflow runs `npm run dev` (Astro dev server) on port 5000.
 
 ## Deployment
-Configured as a static site deployment with `publicDir: "."`.
+Configured as a static site: builds with `npm run build`, serves from `dist/`.
