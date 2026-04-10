@@ -87,11 +87,12 @@ const {
       nextStar = rand(3000, 8000);
     }
 
-    let lastTime = 0;
-    let starTimer = rand(1000, 3000);
+    let lastTime = -1;
+    let starTimer = rand(3000, 6000);
 
     function draw(t) {
-      const dt = t - lastTime;
+      if (lastTime < 0) { lastTime = t; }
+      const dt = Math.min(t - lastTime, 100);
       lastTime = t;
       ctx.clearRect(0, 0, w, h);
 
