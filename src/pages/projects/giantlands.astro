@@ -1,0 +1,147 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="GiantLands — Wonderfilled, Inc."
+  description="A 30-year transmedia universe rooted in ancestral American myth. Tabletop RPG, novels, adventure modules, and a landmark themed experience concept at Aztalan State Park."
+>
+
+  <!-- Hero -->
+  <div style="
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 12rem 4rem 6rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+  ">
+    <div style="
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 70% at 30% 50%, rgba(201,168,76,0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 20%, rgba(139,26,26,0.06) 0%, transparent 60%),
+        linear-gradient(180deg, #080808 0%, #0c0c08 100%);
+    "></div>
+    <div style="
+      position: absolute; inset: 0; opacity: 0.03;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.8) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.8) 1px, transparent 1px);
+      background-size: 60px 60px;
+    "></div>
+    <div style="position: relative; z-index: 2; max-width: 900px;">
+      <div class="section-eyebrow">Flagship Universe</div>
+      <h1 style="
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(5rem, 12vw, 12rem);
+        font-weight: 300;
+        line-height: 0.9;
+        letter-spacing: -0.02em;
+        color: var(--text-hero);
+        margin-bottom: 2rem;
+      ">Giant<em style="font-style:italic; color:var(--gold);">Lands</em></h1>
+      <p style="
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+        font-weight: 300; font-style: italic;
+        color: var(--mist2);
+        max-width: 650px;
+        line-height: 1.5;
+      ">A 30-year transmedia universe rooted in the ancestral myth of the American continent.</p>
+      <div style="display:flex; gap:1.5rem; margin-top:3rem; flex-wrap:wrap;">
+        <div class="card-formats" style="margin-top:0;">
+          <span class="format-pill active">Tabletop RPG</span>
+          <span class="format-pill active">Novels</span>
+          <span class="format-pill active">Adventure Modules</span>
+          <span class="format-pill">Theme Park</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Universe Overview -->
+  <section class="inner-section" style="background: var(--ink2);">
+    <div class="two-col">
+      <div>
+        <div class="section-eyebrow">The World</div>
+        <h2 class="section-title" style="font-size: clamp(2rem, 4vw, 3.5rem);">The <em>Fifth Age.</em></h2>
+      </div>
+      <div class="about-text">
+        <p>GiantLands is set in the <strong>Fifth Age</strong> — a mythological era in which the giants who built the great mounds of ancient North America have faded into legend, but their works define the landscape and their power seeps through the soil.</p>
+        <p>The universe draws on the rich mythological traditions of the ancestral peoples of the American continent: Mississippian culture, Cahokia, the effigy mound builders of the Great Lakes, the people of Aztalan. It is a world where <strong>myth is archaeology</strong> and the past is always present.</p>
+        <p>Rooted in rigorous historical and anthropological research, GiantLands uses the conventions of tabletop RPG and speculative fiction to illuminate and honor traditions that most mainstream media ignores entirely.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="inner-section" style="background: var(--ink);">
+    <div class="section-eyebrow">Publications</div>
+    <h2 class="section-title" style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 4rem;">The <em>Catalog.</em></h2>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <span class="product-type">Core Adventure Module</span>
+        <h3 class="product-title">Tuskaloosa's Reckoning</h3>
+        <p class="product-body">The entry point into the GiantLands universe. Players navigate the Fifth Age as explorers, diplomats, and myth-keepers. Structured for both one-shots and extended campaigns, with faction systems and a living world that responds to player choices.</p>
+        <div class="card-formats" style="margin-top: 1rem;">
+          <span class="format-pill active">Tabletop RPG</span>
+          <span class="format-pill active">Available Now</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="product-type">Campaign Sourcebook</span>
+        <h3 class="product-title">The Broken Road</h3>
+        <p class="product-body">A geographic and political expansion of the Fifth Age. The trade routes, faction conflicts, and mythological fault lines between settlements — a Game Master's toolkit for extended play in the GiantLands universe.</p>
+        <div class="card-formats" style="margin-top: 1rem;">
+          <span class="format-pill active">Sourcebook</span>
+          <span class="format-pill active">Available Now</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="product-type">World Bible</span>
+        <h3 class="product-title">Fifth Age Codex</h3>
+        <p class="product-body">The complete reference document for the GiantLands mythology. Cosmology, history, peoples, creatures, sacred sites, and the deep lore of the ancestral American tradition that underpins the setting. Essential for players and designers alike.</p>
+        <div class="card-formats" style="margin-top: 1rem;">
+          <span class="format-pill active">Codex</span>
+          <span class="format-pill active">Available Now</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Aztalan / Theme Park Vision -->
+  <section class="inner-section" style="background: var(--ink2);">
+    <div class="two-col">
+      <div>
+        <div class="section-eyebrow">The Long Game</div>
+        <h2 class="section-title" style="font-size: clamp(2rem, 4vw, 3.5rem);">Aztalan <em>State Park.</em></h2>
+      </div>
+      <div class="about-text">
+        <p>GiantLands is not just a tabletop game. It is a 30-year mythology with a physical destination at its heart: a landmark themed experience concept at <strong>Aztalan State Park</strong> in Wisconsin — one of the most significant and least-recognized archaeological sites in North America.</p>
+        <p>Aztalan was a Mississippian city, a trading hub, a place of ceremony. The earthworks are still there. The stories are still there. <strong>We intend to tell them.</strong></p>
+        <p>The themed experience concept is in development as part of the long-arc GiantLands transmedia plan — alongside the existing tabletop catalog, a novel series currently in development, and future digital experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: var(--ink); text-align: center; padding: 8rem 4rem;">
+    <div class="section-eyebrow" style="justify-content: center;">Enter the World</div>
+    <h2 class="section-title" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 2rem;">Begin Your <em>Expedition.</em></h2>
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--mist2); max-width: 600px; margin: 0 auto 3rem; line-height: 1.6;">
+      All three GiantLands publications are available now. Enter the Fifth Age.
+    </p>
+    <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;">
+      <a class="btn-primary" href="/contact">Inquire About Licensing</a>
+      <a class="btn-ghost" href="/projects">All Projects →</a>
+    </div>
+  </section>
+
+</Base>

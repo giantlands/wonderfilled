@@ -1,0 +1,19 @@
+---
+const footerLinks = [
+  { href: '/projects', label: 'Projects' },
+  { href: '/services', label: 'Services' },
+  { href: '/news', label: 'News' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<footer>
+  <div class="footer-logo">Wonderfilled, Inc.</div>
+  <p class="footer-copy">© 2026 Wonderfilled, Inc. · wonderfilled.games</p>
+  <ul class="footer-links">
+    {footerLinks.map(link => (
+      <li><a href={link.href}>{link.label}</a></li>
+    ))}
+  </ul>
+</footer>

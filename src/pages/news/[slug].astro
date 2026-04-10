@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('news');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+type Props = CollectionEntry<'news'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Base
+  title={`${post.data.title} — Wonderfilled, Inc.`}
+  description={post.data.excerpt}
+>
+
+  <!-- Post Hero -->
+  <div class="page-hero" style="background: var(--ink);">
+    <div style="max-width: 860px;">
+      <div class="page-hero-eyebrow">{post.data.category}</div>
+      <h1 class="page-hero-title" style="font-size: clamp(2rem, 5vw, 4.5rem);">{post.data.title}</h1>
+      <p style="
+        font-family: 'Space Mono', monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        color: var(--gold);
+        margin-top: 2rem;
+      ">{post.data.displayDate}</p>
+    </div>
+  </div>
+
+  <!-- Post Content -->
+  <section style="background: var(--ink2); padding: 6rem 4rem;">
+    <div style="max-width: 760px; margin: 0 auto;" class="post-content">
+      <Content />
+    </div>
+  </section>
+
+  <!-- Nav Back -->
+  <section style="background: var(--ink); padding: 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(201,168,76,0.1);">
+    <a class="btn-ghost" href="/news">← All News</a>
+    <a class="btn-ghost" href="/contact">Work With Us →</a>
+  </section>
+
+</Base>

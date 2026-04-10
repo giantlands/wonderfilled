@@ -1,0 +1,37 @@
+---
+interface Format {
+  label: string;
+  active?: boolean;
+}
+
+interface Props {
+  num: string;
+  tag: string;
+  title: string;
+  subtitle: string;
+  body: string;
+  formats: Format[];
+  href?: string;
+  featured?: boolean;
+}
+
+const { num, tag, title, subtitle, body, formats, href, featured = false } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag
+  class:list={['project-card', { 'card-featured': featured }]}
+  {...(href ? { href } : {})}
+>
+  <div class="card-num">{num}</div>
+  <span class="card-tag">{tag}</span>
+  <h3 class="card-title">{title}</h3>
+  <p class="card-subtitle">{subtitle}</p>
+  <p class="card-body" set:html={body}></p>
+  <div class="card-formats">
+    {formats.map(f => (
+      <span class:list={['format-pill', { active: f.active }]}>{f.label}</span>
+    ))}
+  </div>
+  <span class="card-arrow">↗</span>
+</Tag>

@@ -1,0 +1,133 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Services — Wonderfilled, Inc."
+  description="Narrative design consulting, transmedia IP development, themed entertainment, publishing, speaking, and AI strategy from Wonderfilled, Inc."
+>
+
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">Services</div>
+    <h1 class="page-hero-title">What We <em>Offer.</em></h1>
+    <p class="page-hero-sub">From a single consultation to a multi-year transmedia build — we bring the full studio to your project.</p>
+  </div>
+
+  <!-- Services Grid -->
+  <section class="inner-section" style="background: var(--ink2);">
+    <div class="services-grid" style="margin-top: 0; border: 1px solid rgba(201,168,76,0.1);">
+
+      <div class="service-item">
+        <div class="service-icon">01</div>
+        <h2 class="service-title">Narrative Design &amp; Consulting</h2>
+        <p class="service-body">Story architecture, world bible development, character systems, and transmedia strategy — from the designer who named the discipline.</p>
+        <p class="service-body" style="margin-top: 1rem;">We've worked at AAA scale and on indie projects; we understand how story infrastructure differs between a 200-person team and a studio of two. Our process adapts to yours.</p>
+        <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span class="format-pill active">World Building</span>
+          <span class="format-pill active">Story Architecture</span>
+          <span class="format-pill active">Character Systems</span>
+          <span class="format-pill active">World Bibles</span>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-icon">02</div>
+        <h2 class="service-title">Transmedia IP Development</h2>
+        <p class="service-body">We build original intellectual properties designed to expand across games, novels, film, and physical experiences — structured for longevity and licensing.</p>
+        <p class="service-body" style="margin-top: 1rem;">Every IP we develop includes a transmedia architecture document: a map of how the property will expand, which platforms unlock which story layers, and how audience investment compounds over time.</p>
+        <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span class="format-pill active">IP Architecture</span>
+          <span class="format-pill active">Platform Mapping</span>
+          <span class="format-pill active">Licensing Strategy</span>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-icon">03</div>
+        <h2 class="service-title">Themed Entertainment Design</h2>
+        <p class="service-body">Concept development, narrative experience design, and creative direction for theme parks, immersive attractions, and branded worlds. THEA Award level craft.</p>
+        <p class="service-body" style="margin-top: 1rem;">Our themed entertainment work applies the same mythological rigor we bring to games and novels — because the best theme park attractions are not rides, they are entry points into a world.</p>
+        <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span class="format-pill active">Concept Development</span>
+          <span class="format-pill active">Experience Design</span>
+          <span class="format-pill active">Creative Direction</span>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-icon">04</div>
+        <h2 class="service-title">Publishing &amp; Production</h2>
+        <p class="service-body">Game publishing, tabletop RPG production, novel development, and audiobook production — from manuscript to market under the Wonderfilled banner.</p>
+        <p class="service-body" style="margin-top: 1rem;">We co-publish and produce for select partners whose work aligns with our mythology-first philosophy. We do not take on projects as a service-for-hire — we invest in projects we believe in.</p>
+        <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span class="format-pill active">Game Publishing</span>
+          <span class="format-pill active">Tabletop RPG</span>
+          <span class="format-pill active">Novel Development</span>
+          <span class="format-pill active">Audiobook</span>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-icon">05</div>
+        <h2 class="service-title">Speaking &amp; Academic</h2>
+        <p class="service-body">Keynotes, workshops, and institutional partnerships at the frontier of narrative design, transmedia, and emergent technology.</p>
+        <p class="service-body" style="margin-top: 1rem;">Past engagements include TEDxTransmedia Geneva, Harvard Business School, RiseUp Cairo, Bristol VR Lab, IAAPA, and TEAAS. We tailor every presentation to its audience.</p>
+        <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span class="format-pill active">Keynotes</span>
+          <span class="format-pill active">Workshops</span>
+          <span class="format-pill active">Curriculum</span>
+          <span class="format-pill active">Research</span>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-icon">06</div>
+        <h2 class="service-title">AI &amp; Emerging Media</h2>
+        <p class="service-body">Strategic consulting on generative AI, synthetic media, deepfakes, and the ethics of emergent storytelling technologies. Research-backed, industry-tested.</p>
+        <p class="service-body" style="margin-top: 1rem;">We don't approach AI as a cost-cutting measure — we approach it as a new layer of the storytelling stack. Our consulting work helps studios understand where AI extends the craft and where it replaces it.</p>
+        <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span class="format-pill active">GenAI Strategy</span>
+          <span class="format-pill active">Synthetic Media</span>
+          <span class="format-pill active">Ethics</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Clients / Past Work -->
+  <section class="inner-section" style="background: var(--ink);">
+    <div class="section-eyebrow">Selected Work</div>
+    <h2 class="section-title" style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 4rem;">Who We've <em>Built With.</em></h2>
+    <div style="
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2px;
+    ">
+      {[
+        { client: 'Rovio / Angry Birds', category: 'Narrative Design' },
+        { client: 'Evermore Park', category: 'Themed Entertainment' },
+        { client: 'Super Nintendo World', category: 'Themed Entertainment' },
+        { client: 'Studio 11 / Stage11', category: 'Transmedia · Metaverse' },
+        { client: 'The Dungeon Hobbyshop Museum', category: 'Experience Design' },
+        { client: 'University of Tampa / Epic Games', category: 'Academic Partnership' },
+      ].map(item => (
+        <div class="about-stat" style="padding: 2rem;">
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--text-hero); margin-bottom: 0.5rem;">{item.client}</p>
+          <p class="stat-label">{item.category}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: var(--ink2); text-align: center; padding: 8rem 4rem;">
+    <div class="section-eyebrow" style="justify-content: center;">Inquire</div>
+    <h2 class="section-title" style="font-size: clamp(2.5rem, 5vw, 5rem); margin-bottom: 2rem;">Start a <em>Conversation.</em></h2>
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--mist2); max-width: 600px; margin: 0 auto 3rem; line-height: 1.6;">
+      Every engagement begins with a conversation about your world. Tell us what you're building.
+    </p>
+    <a class="btn-primary" href="/contact">Get in Touch</a>
+  </section>
+
+</Base>
