@@ -1,0 +1,67 @@
+Wonderfilled, Inc. — Website Build Plan
+The Vision: TSR had the Dragon. Lucasfilm had the Skywalker Ranch. Wonderfilled is the indie Hollywood studio that owns its mythology end-to-end — website should feel like walking into a production lot, not a portfolio page.
+
+Phase 1 — Foundation (v1, done)
+Single-page HTML/CSS/JS. Static. Self-contained. No framework dependencies. Upload to your server and it runs.
+
+Phase 2 — v2 Architecture (Replit + Claude Code)
+The v1 is a proof of concept. The real site needs this structure:
+Tech Stack recommendation:
+
+Astro — static site generator, zero JS by default, perfect for a content-heavy studio site. Fast, SEO-perfect, deploys anywhere.
+Vanilla CSS (what we already have — no Tailwind, no bloat)
+Netlify CMS or Decap CMS — free, git-based, lets you edit news posts without touching code
+Your own server — drop the /dist build folder via SFTP or rsync
+
+File/folder structure:
+wonderfilled/
+├── src/
+│   ├── pages/
+│   │   ├── index.astro          ← main landing page
+│   │   ├── projects/
+│   │   │   ├── index.astro      ← all projects grid
+│   │   │   ├── giantlands.astro
+│   │   │   └── emperor.astro
+│   │   ├── news/
+│   │   │   ├── index.astro      ← news feed
+│   │   │   └── [slug].astro     ← individual posts (Markdown)
+│   │   ├── services.astro
+│   │   ├── about.astro
+│   │   └── contact.astro
+│   ├── components/
+│   │   ├── Nav.astro
+│   │   ├── Footer.astro
+│   │   ├── ProjectCard.astro
+│   │   └── NewsItem.astro
+│   ├── layouts/
+│   │   └── Base.astro           ← shared head, nav, footer
+│   ├── content/
+│   │   └── news/                ← Markdown files for posts
+│   └── styles/
+│       └── global.css           ← your existing CSS vars
+├── public/
+│   ├── fonts/
+│   ├── images/
+│   │   ├── projects/
+│   │   └── og/                  ← Open Graph social images
+│   └── favicon.ico
+└── astro.config.mjs
+
+Phase 3 — Pages to Build (v2 scope)
+Must-haves:
+
+/ — Hero landing (v1 content, animated)
+/projects — Full IP grid: GiantLands, Emperor, Alien Ranch, GiantLands Adventures, future titles
+/projects/giantlands — Dedicated world page: lore, products, buy links, media
+/projects/emperor — Book page: synopsis, buy links, press quotes, audiobook
+/services — Expanded services with inquiry form
+/news — Blog/news with Markdown posts (no CMS needed initially)
+/about — Full studio story + Erin's bio/credits
+/contact — Form + press kit download
+
+Nice-to-haves (v3):
+
+/press — Press kit page with downloadable assets
+/giantlands — Standalone microsite or subdomain redirect
+Password-protected retailer/distributor portal
+Mailing list integration (Mailchimp or Buttondown)
